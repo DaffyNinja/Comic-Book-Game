@@ -33,6 +33,8 @@ public class NumPad : MonoBehaviour
 
         isInput1 = true;
 
+        gMaster.completedActivity = false;
+
     }
 
     // Update is called once per frame
@@ -41,15 +43,15 @@ public class NumPad : MonoBehaviour
 
         if (runCheck)
         {
-            print("Input Num = " + inputNum1 + inputNum2 + inputNum3 + inputNum4);
+           // print("Input Num = " + inputNum1 + inputNum2 + inputNum3 + inputNum4);
 
-            if (inputNum1 == correctNum1 && inputNum2 == correctNum2 && inputNum3 == correctNum3 && inputNum4 == correctNum4)
+            if (inputNum1 == correctNum1 && inputNum2 == correctNum2 && inputNum3 == correctNum3 && inputNum4 == correctNum4 && gMaster.panelArrayNum == 0)     // Correct
             {
-                print("UNLOCK");
+                gMaster.completedActivity = true;
             }
             else
             {
-                print("Wrong");
+               // print("Wrong");
 
                 inputNum1 = 0;
                 inputNum2 = 0;
@@ -60,6 +62,11 @@ public class NumPad : MonoBehaviour
 
                 runCheck = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            gMaster.completedActivity = true;
         }
 
     }

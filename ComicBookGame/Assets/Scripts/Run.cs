@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Run : MonoBehaviour
 {
-
     Animator animate;
 
     public float runTime;
     float timer;
 
     bool pressed;
+
+    public GameMaster gMaster;
 
     // Use this for initialization
     void Start()
@@ -21,12 +22,14 @@ public class Run : MonoBehaviour
 
         timer = 0;
 
+        gMaster.completedActivity = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pressed)
+        if (pressed && gMaster.canPlay == true)
         {
             animate.enabled = true;
 
@@ -34,7 +37,9 @@ public class Run : MonoBehaviour
 
             if (timer >= runTime)
             {
-                print("Done");
+               // print("Done");
+
+                gMaster.completedActivity = true;
             }
         }
         else

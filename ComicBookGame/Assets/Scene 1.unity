@@ -390,14 +390,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4870502463953932, guid: fa94d4bf518641c4fb5819742e16fcae, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4870502463953932, guid: fa94d4bf518641c4fb5819742e16fcae, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 40
-      objectReference: {fileID: 0}
+    - target: {fileID: 114325971634175222, guid: fa94d4bf518641c4fb5819742e16fcae,
+        type: 2}
+      propertyPath: gMaster
+      value: 
+      objectReference: {fileID: 742492168}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa94d4bf518641c4fb5819742e16fcae, type: 2}
   m_IsPrefabParent: 0
@@ -1026,16 +1023,21 @@ MonoBehaviour:
   redPanels:
   - {fileID: 1007997431}
   - {fileID: 1409679024}
+  - {fileID: 1555516690}
   yellowPanels:
   - {fileID: 1124517712}
   - {fileID: 784656518}
+  - {fileID: 210040727}
   greenPanels:
   - {fileID: 1839298843}
   - {fileID: 623812289}
+  - {fileID: 810457707}
+  panelArrayNum: 0
   isRed: 0
   isYellow: 0
   isGreen: 0
   canPlay: 0
+  completedActivity: 0
   changeTime: 0
   panelNum: 0
   camMove: {fileID: 837093770}
@@ -1185,6 +1187,16 @@ Prefab:
     - target: {fileID: 4624900798294956, guid: 638cd39a2f801b7468c3fad723e2c8d2, type: 2}
       propertyPath: m_LocalScale.y
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114294128723219392, guid: 638cd39a2f801b7468c3fad723e2c8d2,
+        type: 2}
+      propertyPath: gMaster
+      value: 
+      objectReference: {fileID: 742492168}
+    - target: {fileID: 114294128723219392, guid: 638cd39a2f801b7468c3fad723e2c8d2,
+        type: 2}
+      propertyPath: runTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 638cd39a2f801b7468c3fad723e2c8d2, type: 2}

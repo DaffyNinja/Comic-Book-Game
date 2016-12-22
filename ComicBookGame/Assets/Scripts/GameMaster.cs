@@ -8,29 +8,30 @@ public class GameMaster : MonoBehaviour
     public GameObject[] redPanels;
     public GameObject[] yellowPanels;
     public GameObject[] greenPanels;
+    [Space(10)]
+    public int panelArrayNum;
     [Space(5)]
     public bool isRed;
     public bool isYellow;
     public bool isGreen;
     [Space(5)]
     public bool canPlay;
+    public bool completedActivity;
     [Space(5)]
     public float changeTime;
     float timer;
-
     [Space(5)]
-
     public int panelNum;
 
-
     public CameraMove camMove;
- 
+
     // Use this for initialization
     void Start()
     {
-       // isRed = true;
+        // isRed = true;
 
-       // panelNum = 0;
+        // panelNum = 0;
+        panelArrayNum = 0;
 
     }
 
@@ -39,7 +40,7 @@ public class GameMaster : MonoBehaviour
     {
         if (isRed == true && isYellow == false && isGreen == false && panelNum == 0)
         {
-            camMove.gameObject.transform.position = new Vector3(redPanels[0].transform.position.x, redPanels[0].transform.position.y, redPanels[0].transform.position.z - 5);
+            camMove.gameObject.transform.position = new Vector3(redPanels[panelArrayNum].transform.position.x, redPanels[panelArrayNum].transform.position.y, redPanels[panelArrayNum].transform.position.z - 5);
 
             canPlay = false;
         }
@@ -47,7 +48,7 @@ public class GameMaster : MonoBehaviour
         {
             // camMove.transform.position = Vector3.Lerp(transform.position, new Vector3(yellowPanels[0].transform.position.x, yellowPanels[0].transform.position.y, yellowPanels[0].transform.position.z - 5), 0.5f);
 
-            camMove.gameObject.transform.position = new Vector3(yellowPanels[0].transform.position.x, yellowPanels[0].transform.position.y, yellowPanels[0].transform.position.z - 5);
+            camMove.gameObject.transform.position = new Vector3(yellowPanels[panelArrayNum].transform.position.x, yellowPanels[panelArrayNum].transform.position.y, yellowPanels[panelArrayNum].transform.position.z - 5);
 
             canPlay = false;
         }
@@ -55,7 +56,7 @@ public class GameMaster : MonoBehaviour
         {
             // camMove.transform.position = Vector3.Lerp(transform.position, camMove.gameObject.transform.position = new Vector3(greenPanels[0].transform.position.x, greenPanels[0].transform.position.y, greenPanels[0].transform.position.z - 5),0.5f);
 
-            camMove.gameObject.transform.position = new Vector3(greenPanels[0].transform.position.x, greenPanels[0].transform.position.y, greenPanels[0].transform.position.z - 5);
+            camMove.gameObject.transform.position = new Vector3(greenPanels[panelArrayNum].transform.position.x, greenPanels[panelArrayNum].transform.position.y, greenPanels[panelArrayNum].transform.position.z - 5);
 
             canPlay = true;
         }
@@ -73,6 +74,7 @@ public class GameMaster : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             panelNum += 1;
+
         }
 
         switch (panelNum)
@@ -90,14 +92,30 @@ public class GameMaster : MonoBehaviour
                 isYellow = false;
                 isGreen = false;
                 panelNum = 0;
+
                 break;
         }
 
 
-        //if (canPlay)
-        //{
-            
-        //}
+        if (canPlay)
+        {
+            if (completedActivity)
+            {
+                print("Completed");
+
+                panelArrayNum += 1;
+                panelNum += 1;
+                canPlay = false;
+                completedActivity = false;
+
+            }
+
+        }
+        else
+        {
+            completedActivity = false;
+        }
+
 
 
 
