@@ -38,6 +38,8 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
+
         if (isRed == true && isYellow == false && isGreen == false && panelNum == 0)
         {
             camMove.gameObject.transform.position = new Vector3(redPanels[panelArrayNum].transform.position.x, redPanels[panelArrayNum].transform.position.y, redPanels[panelArrayNum].transform.position.z - 5);
@@ -71,7 +73,7 @@ public class GameMaster : MonoBehaviour
         //}
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) & canPlay == false|| Input.touchCount > 0 && canPlay == false)
         {
             panelNum += 1;
 
@@ -117,6 +119,11 @@ public class GameMaster : MonoBehaviour
         }
 
 
+        //Input
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
 
     }
